@@ -57,11 +57,11 @@ mycell = {ro_s, ro_d, alphau,light};
 
 
 T = cell2table(mycell, 'VariableNames', {'ro_s' 'ro_d' 'alphau' 'light'});
-writetable(T,'/scratch/gk925/brdf_fitting_spray_LOG/better_gloss80_fit/sphere_3params_Conditions.txt','Delimiter','\t')
+writetable(T,'/scratch/gk925/brdf_fitting_spray_LOG/gloss80_fit/sphere_3params_Conditions.txt','Delimiter','\t')
 %% Rendering bit
 
 % Set preferences
-setpref('RenderToolbox3', 'workingFolder', '/scratch/gk925/brdf_fitting_spray_LOG/better_gloss80_fit');
+setpref('RenderToolbox3', 'workingFolder', '/scratch/gk925/brdf_fitting_spray_LOG/gloss80_fit');
 
 % use this scene and condition file. 
 parentSceneFile = 'test_sphere.dae';
@@ -106,7 +106,7 @@ montageFile = [montageName '.png'];
     MakeMontage(radianceDataFiles, montageFile, toneMapFactor, isScale, hints);
 
 % load the monochromatic image and display it
-imPath = ['/scratch/gk925/brdf_fitting_spray_LOG/better_gloss80_fit/', hints.recipeName, '/renderings/Mitsuba/test_sphere-001.mat']
+imPath = ['/scratch/gk925/brdf_fitting_spray_LOG/gloss80_fit/', hints.recipeName, '/renderings/Mitsuba/test_sphere-001.mat']
 load(imPath, 'multispectralImage');
 im2 = multispectralImage;
 % figure;imshow(im2(:,:,1))
