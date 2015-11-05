@@ -133,7 +133,12 @@ renderedIm = im2(:,:,1); %for multispectral rendering
 % renderedIm = im2;
 
 
-diff = log(masked_photo)-log(renderedIm);
+log_masked = log(masked_photo);
+log_masked(isinf(log_masked)) = 0;
+log_rendered = log(renderedIm);
+log_rendered(isinf(log_rendered)) = 0;
+
+diff = log_masked-log_rendered;
 costIm = sum(sum(diff.^2));
 
 % cost_arr = [cost_arr;costIm];
