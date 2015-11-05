@@ -43,7 +43,7 @@ for i = 1:iter
         converge2 = abs(bestRhos(i,2)-bestRhos(i-1,2));
     end
     
-    imname = strcat('/scratch/gk925/brdf_fitting_spray_LOG_LOG/gloss100_fit/fit_results/multispectral/', fitname1);
+    imname = strcat('/scratch/gk925/brdf_fitting_spray_LOG/gloss100_fit/fit_results/multispectral/', fitname1);
     save(imname, 'bestRhos','bestfit_2pr');
     
     sprintf('Fix rho_s: %f and rho_d: %f and fit alpha',XBest2(1),XBest2(2));
@@ -60,7 +60,7 @@ for i = 1:iter
     end
     
     sprintf('Fix alphau: %f and fit rho_s and rho_d', XBest1);
-    imname = strcat('/scratch/gk925/brdf_fitting_spray_LOG_LOG/gloss100_fit/fit_results/multispectral/', fitname2);
+    imname = strcat('/scratch/gk925/brdf_fitting_spray_LOG/gloss100_fit/fit_results/multispectral/', fitname2);
     save(imname, 'bestAlphas','bestfit_1pr');
     
     if i>1 && (converge1<=delta1) && (converge2<=delta2) && (converge3<=delta3)
