@@ -35,7 +35,7 @@ InitializeRenderToolbox(true);
 
 %% Tell RenderToolbox3 where to save outputs.
 % choose Matlab's default "user folder"
-myFolder = fullfile('/scratch/gk925/brdf_fitting_spray_LOG/better_gloss80_fit');
+myFolder = fullfile('/scratch/gk925/brdf_fitting_spray_LOG/gloss80_fit');
 
 % or choose any folder that you want RenderToolbox3 to write to
 %myFolder = 'choose/your/output/folder';
