@@ -132,11 +132,14 @@ masked_photo = mask.*photo;
 renderedIm = im2(:,:,1); %for multispectral rendering
 % renderedIm = im2;
 
-
 log_masked = log(masked_photo);
-log_masked(isinf(log_masked)) = 0;
 log_rendered = log(renderedIm);
-log_rendered(isinf(log_rendered)) = 0;
+min_rendered = min(min(log_rendered));
+min_masked = min(min(log_masked));
+min_pixel = min(min_rendered, min_masked);
+
+log_masked(isinf(log_masked)) = min_pixel;
+log_rendered(isinf(log_rendered)) = min_pixel;
 
 diff = log_masked-log_rendered;
 costIm = sum(sum(diff.^2));
