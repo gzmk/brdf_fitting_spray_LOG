@@ -140,9 +140,16 @@ renderedIm = im2(:,:,1); %for multispectral rendering
 
 log_masked = log(masked_photo);
 log_rendered = log(renderedIm);
+
+log_masked(isinf(log_masked)) = 0;
+log_rendered(isinf(log_rendered)) = 0;
+
 min_rendered = min(min(log_rendered));
 min_masked = min(min(log_masked));
 min_pixel = min(min_rendered, min_masked);
+
+log_masked = log(masked_photo);
+log_rendered = log(renderedIm);
 
 log_masked(isinf(log_masked)) = min_pixel;
 log_rendered(isinf(log_rendered)) = min_pixel;
